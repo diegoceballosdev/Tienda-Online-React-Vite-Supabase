@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* Importamos las fuentes */
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("./assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("woff2");
+}
+
+/* Creamos las varaibles de colores de Tailwind y de fuentes */
+@theme {
+  /* Configuración de la Fuente */
+  --font-Montserrat: "Montserrat";
+
+  /* Configuración del Container */
+  --container-center: true;
+  --container-padding: 1rem;
+}
+
+/* aplicamos la fuente Monserrat a todo el body */
+body {
+    @apply font-Montserrat;
+}
