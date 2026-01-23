@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Así se cargan los plugins en v4 */
+@plugin "@tailwindcss/typography";
+
 /* Importamos las fuentes */
 @font-face {
     font-family: "Montserrat";

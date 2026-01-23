@@ -3,6 +3,7 @@ import { RootLayout } from "../layouts/RootLayout";
 import { HomePage } from "../pages/HomePage";
 import { CellPhonesPage } from "../pages/CellPhones";
 import { AboutPage } from "../pages/About";
+import { CellPhonePage } from "../pages/CellPhone";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
       {
         path: "celulares",
         element: <CellPhonesPage />,
+      },
+      {
+        path:'celulares/:slug',
+        element: <CellPhonePage />,
       },
       {
         path: "nosotros",
