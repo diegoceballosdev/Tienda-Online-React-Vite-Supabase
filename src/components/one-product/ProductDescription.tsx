@@ -19,7 +19,7 @@ export const ProductDescription = ({ content }: Props) => {
 	});
 
 	return (
-		<div className='mt-12 px-4'>
+		<div className='my-12 px-4'>
 			<h2 className='text-2xl font-bold text-center mb-8 underline'>
 				Descripción
 			</h2>

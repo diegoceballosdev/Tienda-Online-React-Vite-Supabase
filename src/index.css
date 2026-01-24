@@ -14,12 +14,35 @@
 
 /* Creamos las varaibles de colores de Tailwind y de fuentes */
 @theme {
-  /* Configuración de la Fuente */
-  --font-Montserrat: "Montserrat";
+    /* Configuración de la Fuente */
+    --font-Montserrat: "Montserrat";
 
-  /* Configuración del Container */
-  --container-center: true;
-  --container-padding: 1rem;
+    /* Configuración del Container */
+    --container-center: true;
+    --container-padding: 1rem;
+
+/* Keyframes: v4 permite definirlos como variables de tema */
+    --keyframes-fade-in: {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    };
+
+    --keyframes-slide-in: {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(0); }
+    };
+
+    --keyframes-slide-left: {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(0); }
+    };
+
+    /* Animaciones: Referencian a los keyframes de arriba */
+    --animation-fade-in: fade-in 0.3s ease-in-out;
+    --animation-slide-in: slide-in 0.3s ease-in-out;
+    --animation-slide-left: slide-left 0.3s ease-in-out;
+    --animation-spin-slow: spin 2s linear infinite;
+
 }
 
 /* aplicamos la fuente Monserrat a todo el body */
@@ -29,5 +52,5 @@ body {
 
 /* CLASES PERSONALIZADAS */
 .btn-paginated {
-	@apply border border-slate-700 rounded-md font-semibold text-xs py-1 px-3 hover:bg-slate-700 hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:border-slate-800 disabled:text-slate-800 disabled:hover:bg-white disabled:hover:text-slate-700;
+    @apply border border-slate-700 rounded-md font-semibold text-xs py-1 px-3 hover:bg-slate-700 hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:border-slate-800 disabled:text-slate-800 disabled:hover:bg-white disabled:hover:text-slate-700;
 }
