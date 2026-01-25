@@ -1,12 +1,12 @@
 import { Link, NavLink } from "react-router";
 import { navbarLinks } from "../../constants/links";
-import { HiOutlineSearch, HiOutlineShoppingBag, HiOutlineUser } from "react-icons/hi";
+import { HiOutlineSearch, HiOutlineShoppingBag } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { Logo } from "./Logo";
 import { useGlobalStore } from "../../store/global.store";
 import { useCartStore } from "../../store/cart.store";
 import { FaRegUser } from "react-icons/fa";
-import { useUser } from "../../hooks";
+import { useCustomer, useUser } from "../../hooks";
 import { LuLoader } from "react-icons/lu";
 
 export const Navbar = () => {
@@ -20,6 +20,8 @@ export const Navbar = () => {
     const { session, isLoading } = useUser();
 
     const userId = session?.user.id;
+
+    const { data: customer } = useCustomer(userId!);
 
     return (
 
@@ -65,14 +67,14 @@ export const Navbar = () => {
                         <LuLoader className="animate-spin" size={24} />
                     ) : session ? (
                         <div className="relative">
-                            <Link to="/account" className="w-9 h-9 rounded-full grid place-items-center text-lg font-bold">
-                                <FaRegUser size={24} />
+                            <Link to="/account" className='text-black border-2 border-slate-700 w-9 h-9 rounded-full grid place-items-center text-lg font-bold'>
+                                {customer && customer.full_name[0].toUpperCase()}
                             </Link>
                         </div>
                     ) : (
                         <div>
                             <Link to="/login" className="w-9 h-9 rounded-full grid place-items-center text-lg font-bold">
-                                <HiOutlineUser size={24} />
+                                <FaRegUser size={24} />
                             </Link>
                         </div>
                     )

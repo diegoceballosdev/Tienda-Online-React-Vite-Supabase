@@ -1,10 +1,29 @@
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { useCartStore } from '../store/cart.store';
 import { FormCheckout } from '../components/checkout/FormCheckout';
 import { ItemsCheckout } from '../components/checkout/ItemsCheckout';
+import { useUser } from '../hooks';
+import { Loader } from '../components/shared/Loader';
+import { useEffect } from 'react';
+import { supabase } from '../supabase/client';
 
 export const CheckoutPage = () => {
 	const totalItems = useCartStore(state => state.totalItemsInCart);
+
+	const { isLoading } = useUser();
+
+	const navigate = useNavigate();
+
+	// Redirigir si el usuario no está autenticado:
+	useEffect(() => {
+		supabase.auth.onAuthStateChange(async (event, session) => {
+			if (event === 'SIGNED_OUT' || !session) {
+				navigate('/login');
+			}
+		});
+	}, [navigate]);
+
+	if (isLoading) return <Loader />;
 
 	return (
 		<div
@@ -26,7 +45,6 @@ export const CheckoutPage = () => {
 
 			<main className='w-full h-full flex relative'>
 				{totalItems === 0 ? (
-                    //Con carrito vacío:
 					<div
 						className='flex flex-col items-center justify-center gap-5 w-full'
 						style={{
@@ -44,7 +62,6 @@ export const CheckoutPage = () => {
 						</Link>
 					</div>
 				) : (
-                    //Con items en el carrito:
 					<>
 						<div className='w-full md:w-[50%] p-10'>
 							<FormCheckout />
