@@ -1,9 +1,11 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import { RootLayout } from "../layouts/RootLayout";
 import { HomePage } from "../pages/HomePage";
 import { CellPhonesPage } from "../pages/CellPhones";
 import { AboutPage } from "../pages/About";
 import { CellPhonePage } from "../pages/CellPhone";
+import { LoginPage, OrdersUserPage, RegisterPage } from "../pages";
+import { ClientLayout } from "../layouts/ClientLayout";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +27,28 @@ export const router = createBrowserRouter([
       {
         path: "nosotros",
         element: <AboutPage />, 
+      },
+      {
+        path: "login",
+        element: <LoginPage />, 
+      },
+      {
+        path: "registro",
+        element: <RegisterPage />,
+      },
+      {
+        path: "account",
+        element: <ClientLayout />,
+        children: [
+          {
+            path: "",
+            element: <Navigate to='/account/pedidos' />
+          },
+          {
+            path: "pedidos",
+            element: <OrdersUserPage />,
+          },
+        ],
       }
     ],
   },

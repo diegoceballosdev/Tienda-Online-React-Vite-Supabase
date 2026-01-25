@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { FaCartPlus } from "react-icons/fa";
 import { Link } from 'react-router';
-
 import { formatPrice } from '../../helpers';
 import type { VariantProduct } from '../../interfaces';
 import { Tag } from '../shared/Tag';
