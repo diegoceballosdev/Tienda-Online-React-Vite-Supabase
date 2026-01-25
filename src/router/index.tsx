@@ -4,13 +4,13 @@ import { HomePage } from "../pages/HomePage";
 import { CellPhonesPage } from "../pages/CellPhones";
 import { AboutPage } from "../pages/About";
 import { CellPhonePage } from "../pages/CellPhone";
-import { LoginPage, OrdersUserPage, RegisterPage } from "../pages";
+import { CheckoutPage, LoginPage, OrdersUserPage, OrderUserPage, RegisterPage, ThankyouPage } from "../pages";
 import { ClientLayout } from "../layouts/ClientLayout";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />, 
+    element: <RootLayout />,
     children: [
       {
         index: true,
@@ -21,16 +21,16 @@ export const router = createBrowserRouter([
         element: <CellPhonesPage />,
       },
       {
-        path:'celulares/:slug',
+        path: 'celulares/:slug',
         element: <CellPhonePage />,
       },
       {
         path: "nosotros",
-        element: <AboutPage />, 
+        element: <AboutPage />,
       },
       {
         path: "login",
-        element: <LoginPage />, 
+        element: <LoginPage />,
       },
       {
         path: "registro",
@@ -48,8 +48,25 @@ export const router = createBrowserRouter([
             path: "pedidos",
             element: <OrdersUserPage />,
           },
+          {
+            path: "pedidos/:id",
+            element: <OrderUserPage />,
+          }
         ],
-      }
+      },
+      {
+        path: "thankyou",
+        element: <ThankyouPage />,
+      },
     ],
+
   },
+  {
+    path: "/checkout",
+    element: <CheckoutPage />,
+  },
+  {
+    path: "/checkout/:id/thank-you",
+    element: <ThankyouPage />,
+  }
 ]);
