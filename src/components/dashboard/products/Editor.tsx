@@ -1,7 +1,7 @@
 import { EditorContent, useEditor, type Editor as EditorType, type JSONContent, } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import type { ProductFormValues } from '../../../lib/validators';
-import type { ReactNode } from 'react';
+import { useEffect, type ReactNode } from 'react';
 import type { FieldErrors, UseFormSetValue } from 'react-hook-form';
 
 interface Props {
@@ -13,10 +13,9 @@ interface Props {
 export const MenuBar = ({ editor }: { editor: EditorType | null }) => {
 
 	const buttonClass = (isActive: boolean) =>
-		`w-8 h-7 grid place-items-center  border text-sm rounded transition-all ${
-			isActive
-				? 'border-blue-500 bg-blue-100 text-blue-700'
-				: 'border-gray-300 bg-white text-gray-600 hover:bg-gray-100'
+		`w-8 h-7 grid place-items-center  border text-sm rounded transition-all ${isActive
+			? 'border-blue-500 bg-blue-100 text-blue-700'
+			: 'border-gray-300 bg-white text-gray-600 hover:bg-gray-100'
 		}`;
 
 	if (!editor) { return null; }
@@ -111,6 +110,12 @@ export const Editor = ({ setValue, errors, initialContent }: Props) => {
 			},
 		},
 	});
+
+	useEffect(() => {
+		if (initialContent && editor) {
+			editor.commands.setContent(initialContent);
+		}
+	}, [initialContent, editor]);
 
 	return (
 		<div className='space-y-3'>
