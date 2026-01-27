@@ -29,9 +29,9 @@ export const FormProduct = ({ titleForm }: Props) => {
 		formState: { errors },
 		setValue,
 		watch,
-		control 
-    } = useForm<ProductFormValues>({ // tipo de inferencia para los valores del formulario
-		    resolver: zodResolver(productSchema), // Integrate Zod schema validation
+		control
+	} = useForm<ProductFormValues>({ // tipo de inferencia para los valores del formulario
+		resolver: zodResolver(productSchema), // Integrate Zod schema validation
 	});
 
 	const { slug } = useParams<{ slug: string }>();
@@ -110,27 +110,41 @@ export const FormProduct = ({ titleForm }: Props) => {
 
 	return (
 		<div className='flex flex-col gap-6 relative'>
-			<div className='flex justify-between items-center'>
-				<div className='flex items-center gap-3'>
-					<button
-						className='bg-white p-1.5 rounded-md shadow-sm border border-slate-200 transition-all group hover:scale-105'
-						onClick={() => navigate(-1)}
-					>
-						<IoIosArrowBack
-							size={18}
-							className='transition-all group-hover:scale-125'
-						/>
-					</button>
-					<h2 className='font-bold tracking-tight text-2xl capitalize'>
-						{titleForm}
-					</h2>
-				</div>
-			</div>
 
 			<form
 				className='grid grid-cols-1 lg:grid-cols-3 gap-8 auto-rows-max flex-1'
 				onSubmit={onSubmit}
 			>
+				<div className='flex justify-between items-center col-span-full'>
+					<div className='flex items-center gap-3 col-span-2'>
+						<button
+							className='bg-white p-1.5 rounded-md shadow-sm border border-slate-200 transition-all group hover:scale-105'
+							onClick={() => navigate(-1)}
+						>
+							<IoIosArrowBack
+								size={18}
+								className='transition-all group-hover:scale-125'
+							/>
+						</button>
+						<h2 className='font-bold tracking-tight text-2xl capitalize'>
+							{titleForm}
+						</h2>
+					</div>
+					<div className='flex gap-3 top-0 right-0 col-span-1'>
+						<button
+							className='btn-secondary-outline hover:text-indigo-400'
+							type='button'
+							onClick={() => navigate(-1)}
+						>
+							Cancelar
+						</button>
+						<button className='btn-primary hover:text-indigo-400' type='submit'>
+							Guardar Producto
+						</button>
+					</div>
+				</div>
+
+
 				<SectionFormProduct
 					titleSection='Detalles del Producto'
 					className='lg:col-span-2 lg:row-span-2'
@@ -197,19 +211,6 @@ export const FormProduct = ({ titleForm }: Props) => {
 						initialContent={product?.description as JSONContent | undefined}
 					/>
 				</SectionFormProduct>
-
-				<div className='flex gap-3 absolute top-0 right-0'>
-					<button
-						className='btn-secondary-outline'
-						type='button'
-						onClick={() => navigate(-1)}
-					>
-						Cancelar
-					</button>
-					<button className='btn-primary' type='submit'>
-						Guardar Producto
-					</button>
-				</div>
 			</form>
 		</div>
 	);

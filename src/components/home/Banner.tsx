@@ -6,7 +6,7 @@ export const Banner = () => {
             {/* IMAGEN DE FONDO */}
             <div
                 className='absolute inset-0 bg-cover bg-center opacity-70 h-full'
-                style={{ backgroundImage: 'url(/img/img-banner.jpg)' }}
+                style={{ backgroundImage: 'url(/img/img-banner2.jpg)' }}
             />
 
             {/* OVERLAY */}
@@ -15,12 +15,12 @@ export const Banner = () => {
             {/* CONTENIDO */}
             <div className='relative z-10 flex flex-col items-center justify-center py-20 px-4 text-center lg:py-40 lg:px-8'>
                 <h1 className='text-4xl font-bold mb-4 lg:text-6xl'>
-                    Los mejores celulares del 2024
+                    Los mejores celulares del 2025
                 </h1>
 
                 <p className='text-lg mb-8 lg:text-2xl'>
                     Descubre las ofertas exclusivas y las últimas novedades en
-                    celulares
+                    celulares.
                 </p>
 
                 <Link

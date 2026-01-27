@@ -104,7 +104,7 @@ export const CardProduct = ({ img, name, price, slug, colors, variants, }: Props
                     ))}
                 </div>
                 <button
-                    className=' bottom-0 bg-white w-[200px] pt-2 rounded-3xl flex items-center justify-center gap-1 text-sm font-medium hover:text-slate-400'
+                    className=' bottom-0 bg-white w-[200px] pt-2 font-semibold flex items-center justify-center gap-1 text-sm font-medium hover:text-indigo-400'
                     onClick={handleAddClick}>
                     <FaCartPlus size={16} /> Agregar al carrito
                 </button>

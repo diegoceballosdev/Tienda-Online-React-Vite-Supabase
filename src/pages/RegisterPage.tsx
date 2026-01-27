@@ -44,7 +44,7 @@ export const RegisterPage = () => {
 
             {isPending ? (
                 <div className='w-full h-full flex justify-center mt-20'>
-                    <LuLoader className='animate-spin' size={60} />
+                    <LuLoader className='animate-spin ' size={60} />
                 </div>
             ) : (
                 <>
@@ -96,14 +96,14 @@ export const RegisterPage = () => {
                             </p>
                         )}
 
-                        <button className='bg-black text-white uppercase font-semibold tracking-widest text-xs py-4 rounded-full mt-5 w-full'>
+                        <button className='bg-indigo-600 hover:bg-indigo-400 text-white uppercase font-semibold tracking-widest text-xs py-4 rounded-full mt-5 w-full'>
                             Registrarme
                         </button>
                     </form>
 
                     <p className='text-sm text-stone-800'>
                         ¿Ya tienes una cuenta?
-                        <Link to='/registro' className='underline ml-2'>
+                        <Link to='/login' className='underline ml-2 hover:text-indigo-600'>
                             Inicia sesión
                         </Link>
                     </p>

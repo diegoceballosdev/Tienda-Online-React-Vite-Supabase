@@ -4,69 +4,62 @@ import { socialLinks } from '../../constants/links';
 
 export const Footer = () => {
 	return (
-		<footer className='py-16 bg-gray-950 px-12 flex justify-between gap-10 text-slate-200 text-sm flex-wrap md:flex-nowrap'>
-			<Link
-				to='/'
-				className={`text-2xl font-bold tracking-tighter transition-all text-white flex-1`}
-			>
-				Celulares Baratos
-			</Link>
+		<footer className='py-20 bg-slate-950 px-8 lg:px-24 flex flex-col md:flex-row justify-between gap-16 text-slate-400 text-sm'>
+			<div className="flex flex-col gap-6 flex-1">
+                <Link
+                    to='/'
+                    className="text-2xl font-black tracking-tight text-white italic"
+                >
+                    CEL<span className="text-indigo-500">TECH</span>
+                </Link>
+                <p className="max-w-xs leading-relaxed text-slate-500">
+                    La tecnología más avanzada al alcance de tu mano con los mejores precios del mercado.
+                </p>
+            </div>
 
-			<div className='flex flex-col gap-4 flex-1'>
-				<p className='font-semibold uppercase tracking-tighter'>
-					Suscríbete
+			<div className='flex flex-col gap-6 flex-1'>
+				<p className='font-bold text-white uppercase tracking-widest text-xs'>
+					Newsletter
 				</p>
-				<p className='text-xs font-medium'>
-					Recibe promociones exclusivas
+				<p className='text-slate-500'>
+					Recibe promociones exclusivas y lanzamientos.
 				</p>
 
-				<div className='border border-gray-800 flex items-center gap-2 px-3 py-2 rounded-full'>
+				<div className='bg-slate-900 border border-slate-800 flex items-center gap-2 p-1.5 rounded-2xl focus-within:ring-2 focus-within:ring-indigo-500/50 transition-all'>
 					<input
 						type='email'
-						placeholder='Correo Electrónico'
-						className='pl-2 bg-gray-950 text-slate-200 w-full focus:outline-none'
+						placeholder='Tu correo electrónico'
+						className='pl-3 bg-transparent text-white w-full focus:outline-none placeholder:text-slate-600'
 					/>
-
-					<button className='text-slate-200'>
+					<button className='bg-indigo-600 hover:bg-indigo-500 p-2.5 rounded-xl text-white transition-colors'>
 						<BiChevronRight size={20} />
 					</button>
 				</div>
 			</div>
 
-			<div className='flex flex-col gap-4 flex-1'>
-				<p className='font-semibold uppercase tracking-tighter'>
-					Políticas
+			<div className='flex flex-col gap-6 flex-1'>
+				<p className='font-bold text-white uppercase tracking-widest text-xs'>
+					Explorar
 				</p>
-
-				<nav className='flex flex-col gap-2 text-xs font-medium'>
-					<Link to='/celulares'>Productos</Link>
-					<Link to='#' className='text-slate-300 hover:text-white'>
-						Políticas de privacidad
-					</Link>
-					<Link to='#' className='text-slate-300 hover:text-white'>
-						Términos de uso
-					</Link>
+				<nav className='flex flex-col gap-3'>
+					<Link to='/celulares' className="hover:text-indigo-400 transition-colors">Todos los Productos</Link>
+					<Link to='#' className='hover:text-indigo-400 transition-colors'>Políticas de privacidad</Link>
+					<Link to='#' className='hover:text-indigo-400 transition-colors'>Términos de uso</Link>
 				</nav>
 			</div>
 
-			<div className='flex flex-col gap-4 flex-1'>
-				<p className='font-semibold uppercase tracking-tighter'>
+			<div className='flex flex-col gap-6 flex-1'>
+				<p className='font-bold text-white uppercase tracking-widest text-xs'>
 					Síguenos
 				</p>
-
-				<p className='text-xs leading-6'>
-					No te pierdas las novedades que CelularesBaratos tiene para
-					ti.
-				</p>
-
-				<div className='flex'>
+				<div className='grid grid-cols-4 gap-2'>
 					{socialLinks.map(link => (
 						<a
 							key={link.id}
 							href={link.href}
 							target='_blank'
 							rel='noreferrer'
-							className='text-slate-300 border border-gray-8000 w-full h-full py-3.5 flex items-center justify-center transition-all hover:bg-white hover:text-gray-950'
+							className='aspect-square border border-slate-800 rounded-xl flex items-center justify-center transition-all hover:bg-white hover:text-slate-950 hover:-translate-y-1'
 						>
 							{link.icon}
 						</a>

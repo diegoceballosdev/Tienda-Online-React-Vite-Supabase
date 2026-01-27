@@ -25,63 +25,75 @@ export const Navbar = () => {
 
     return (
 
-        <header className="bg-white text-black py-4 flex items-center justify-between px-5 border-b border-slate-200 lg:px-12">
+        <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
+            <div className="py-4 flex items-center justify-between px-4 sm:px-6 lg:px-12">
+                <div className="flex items-center gap-4">
+                    <button className="md:hidden p-2 -m-2 rounded-lg hover:bg-slate-100 active:bg-slate-200 transition" >
+                        <SlMenu size={32} onClick={() => setActiveNavMobile(true)}></SlMenu>
+                    </button>
+                    <Logo />
+                </div>
 
-            <div className="flex gap-4">
+                <nav className="space-x-1 hidden md:flex">
+                    {
+                        navbarLinks.map(link => (
+                            <NavLink
+                                key={link.id}
+                                to={link.href}
+                                className={({ isActive }) =>
+                                    `${isActive ? 'text-indigo-600' : 'text-slate-700'} px-4 py-2 rounded-full transition-all duration-200 text-lg font-semibold hover:text-indigo-600`
+                                }
+                            >
+                                {link.title}
+                            </NavLink>
+                        ))
+                    }
+                </nav>
 
+                <div className="flex gap-2 sm:gap-3 items-center">
+                    <button
+                        onClick={() => openSheet('search')}
+                        className="p-2 rounded-full hover:bg-slate-100 active:bg-slate-200 transition text-slate-700 hover:text-slate-900"
+                    >
+                        <HiOutlineSearch size={24} />
+                    </button>
 
-                <button className="md:hidden" >
-                    <SlMenu size={32} onClick={() => setActiveNavMobile(true)}></SlMenu>
-                </button>
-                <Logo />
+                    <button
+                        className="relative p-2 rounded-full hover:bg-slate-100 active:bg-slate-200 transition text-slate-700 hover:text-slate-900"
+                        onClick={() => openSheet('cart')}
+                    >
+                        <span className="absolute -bottom-1 -right-1 min-w-5 h-5 px-1 grid place-items-center bg-indigo-600 text-white rounded-full text-[11px] font-semibold ring-2 ring-white">
+                            {totalItemsInCart}
+                        </span>
+                        <HiOutlineShoppingBag size={24} />
+                    </button>
+
+                    {
+                        isLoading ? (
+                            <LuLoader className="animate-spin text-slate-600" size={24} />
+                        ) : session ? (
+                            <div className="relative">
+                                <Link
+                                    to="/account"
+                                    className="text-slate-900 border border-slate-200 bg-white w-10 h-10 rounded-full grid place-items-center text-lg font-bold shadow-sm hover:shadow transition hover:border-indigo-200 hover:ring-2 hover:ring-indigo-100"
+                                >
+                                    {customer && customer.full_name[0].toUpperCase()}
+                                </Link>
+                            </div>
+                        ) : (
+                            <div>
+                                <Link
+                                    to="/login"
+                                    className="w-10 h-10 rounded-full grid place-items-center text-lg font-bold text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition"
+                                >
+                                    <FaRegUser size={24} />
+                                </Link>
+                            </div>
+                        )
+                    }
+
+                </div>
             </div>
-
-            <nav className="space-x-4 hidden md:flex">
-                {
-                    navbarLinks.map(link => (
-                        <NavLink
-                            key={link.id}
-                            to={link.href}
-                            className={({ isActive }) => `${isActive ? 'text-cyan-600' : ''} px-4 transition-all duration-300 font-bold hover:text-cyan-400`}
-                        >
-                            {link.title}
-                        </NavLink>
-                    ))
-                }
-            </nav>
-
-            <div className="flex gap-4 items-center">
-                <button onClick={() => openSheet('search')}>
-                    <HiOutlineSearch size={24} />
-                </button>
-
-                <button className="relative" onClick={() => openSheet('cart')}>
-                    <span className="absolute -bottom-2 -right-2 w-4 h-4 grid place-items-center bg-black text-white rounded-full text-xs">
-                        {totalItemsInCart}
-                    </span>
-                    <HiOutlineShoppingBag size={24} />
-                </button>
-
-                {
-                    isLoading ? (
-                        <LuLoader className="animate-spin" size={24} />
-                    ) : session ? (
-                        <div className="relative">
-                            <Link to="/account" className='text-black border-2 border-slate-700 w-9 h-9 rounded-full grid place-items-center text-lg font-bold'>
-                                {customer && customer.full_name[0].toUpperCase()}
-                            </Link>
-                        </div>
-                    ) : (
-                        <div>
-                            <Link to="/login" className="w-9 h-9 rounded-full grid place-items-center text-lg font-bold">
-                                <FaRegUser size={24} />
-                            </Link>
-                        </div>
-                    )
-                }
-
-            </div>
-
         </header>
     );
 };

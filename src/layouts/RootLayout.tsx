@@ -8,24 +8,18 @@ import { useGlobalStore } from "../store/global.store";
 import { NavbarMobile } from "../components/shared/NavbarMobile";
 
 export const RootLayout = () => {
-
-    const { pathname } = useLocation(); // Obtener la ruta actual
-    
+    const { pathname } = useLocation();
     const isSheetOpen = useGlobalStore(state => state.isSheetOpen);
-
     const activeNavMobile = useGlobalStore(state => state.activeNavMobile);
 
     return (
-
-        <div className="h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col bg-slate-50/50 text-slate-900 antialiased">
             <Navbar />
 
             {pathname === "/" && <Banner /> }
 
-            <main className="container my-8 flex-1 mx-auto px-2">
-
+            <main className="container flex-1 mx-auto px-4 sm:px-6 lg:px-8 my-10">
                 <Outlet />
-
             </main>
 
             {pathname === "/" && <Newsletter /> }
@@ -35,7 +29,6 @@ export const RootLayout = () => {
             {activeNavMobile && <NavbarMobile />} 
 
             <Footer />
-
         </div>
     )
 };

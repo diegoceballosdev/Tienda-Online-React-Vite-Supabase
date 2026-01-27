@@ -9,8 +9,8 @@ interface Props {
 
 export const ProductGrid = ({ title, products }: Props) => {
 	return (
-		<div className='my-32'>
-			<h2 className='text-3xl font-semibold text-center mb-8 md:text-4xl lg:text-5xl'>
+		<div className='my-24 sm:my-28 lg:my-32'>
+			<h2 className='text-3xl font-bold text-center mb-10 md:text-4xl lg:text-5xl tracking-tight text-slate-900'>
 				{title}
 			</h2>
 

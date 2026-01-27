@@ -64,8 +64,8 @@ export const TableProduct = () => {
 
 	return (
 		<div className='flex flex-col flex-1 border border-gray-200 rounded-lg p-5 bg-white'>
+			
 			<h1 className='font-bold text-xl'>Productos</h1>
-
 			<p className='text-sm mt-1 mb-8 font-regular text-gray-500'>
 				Gestiona tus productos y mira las estadísticas de tus ventas
 			</p>
@@ -150,7 +150,7 @@ export const TableProduct = () => {
 											>
 												<Link
 													to={`/dashboard/productos/editar/${product.slug}`}
-													className='flex items-center gap-1 w-full text-left px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-100'
+													className='flex items-center gap-1 w-full text-left px-4 py-2 text-xs font-medium text-gray-700 hover:bg-indigo-100'
 												>
 													Editar
 													<HiOutlineExternalLink
@@ -159,7 +159,7 @@ export const TableProduct = () => {
 													/>
 												</Link>
 												<button
-													className='block w-full text-left px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-100'
+													className='block w-full text-left px-4 py-2 text-xs font-medium text-gray-700 hover:bg-indigo-100'
 													onClick={() =>
 														handleDeleteProduct(product.id)
 													}

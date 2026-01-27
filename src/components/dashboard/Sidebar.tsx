@@ -10,7 +10,7 @@ export const Sidebar = () => {
     };
 
     return (
-        <div className='w-[120px] bg-stone-800 text-white flex flex-col gap-10 items-center p-5 fixed h-screen lg:w-[250px]'>
+        <div className='w-[100px] bg-gray-700 text-white flex flex-col gap-10 items-center p-5 fixed h-screen lg:w-[230px]'>
            
                 {/* fixed es para que el sidebar quede fijo en la pantalla mientras se hace scroll
                 - el ancho w-[120px] tiene 20px que el margin [140px] del dashboard product, para incrustarse alli 
@@ -25,13 +25,13 @@ export const Sidebar = () => {
                         to={link.href}
                         className={({ isActive }) =>
                             `flex items-center justify-center gap-3 pl-0 py-3 transition-all duration-300 rounded-md ${isActive
-                                ? 'text-white bg-cyan-600'
-                                : 'hover:text-white hover:bg-cyan-600'
+                                ? 'text-indigo-100 bg-indigo-600'
+                                : 'text-white hover:text-indigo-100'
                             } lg:pl-5 lg:justify-start`
                         }
                     >
                         {link.icon}
-                        <p className='font-semibold hidden lg:block'>
+                        <p className='font-semibold hidden lg:block hover:text-indigo-400'>
                             {link.title}
                         </p>
                     </NavLink>
@@ -39,7 +39,7 @@ export const Sidebar = () => {
             </nav>
 
             <button
-                className='bg-red-500 w-full py-[10px] rounded-md flex items-center justify-center gap-2 font-semibold text-sm hover:underline'
+                className='bg-indigo-600 hover:bg-indigo-400 w-full py-[10px] rounded-md flex items-center justify-center gap-2 font-semibold text-sm'
                 onClick={handleLogout}
             >
                 <span className='hidden lg:block'>Cerrar sesión</span>

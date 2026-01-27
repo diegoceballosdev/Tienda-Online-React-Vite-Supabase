@@ -17,15 +17,15 @@ export const NavbarMobile = () => {
             </button>
 
             {/* Contenido*/}
-            <div className='flex flex-col gap-20'>
+            <div className='flex flex-col gap-10 text-center justify-center'>
                 <Link
                     to='/'
                     className='text-4xl font-bold tracking-tighter transition-all'
                     onClick={() => setActiveNavMobile(false)}
                 >
                     <p>
-                        Celulares
-                        <span className='text-cyan-600'>Baratos</span>
+                        CEL
+                        <span className='text-indigo-600'>TECH</span>
                     </p>
                 </Link>
 
@@ -36,9 +36,9 @@ export const NavbarMobile = () => {
                             key={item.id}
                             className={({ isActive }) => `
                                 ${isActive
-                                    ? 'text-cyan-600'
+                                    ? 'text-indigo-600'
                                     : ''
-                                } transition-all duration-300 font-semibold text-xl hover:text-cyan-600
+                                } transition-all duration-300 font-semibold text-xl hover:text-indigo-600
                             `}
                             onClick={() => setActiveNavMobile(false)}
                         >

@@ -106,7 +106,7 @@ export const Editor = ({ setValue, errors, initialContent }: Props) => {
 		editorProps: {
 			attributes: {
 				class:
-					'focus:outline-none min-h-[150px] prose prose-sm sm:prose-base',
+					'focus:outline-none min-h-[150px] prose  max-w-none',
 			},
 		},
 	});

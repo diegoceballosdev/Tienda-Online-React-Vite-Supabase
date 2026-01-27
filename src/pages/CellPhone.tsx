@@ -159,13 +159,13 @@ export const CellPhonePage = () => {
 
     return (
         <>
-            <div className='h-fit flex flex-col md:flex-row gap-16 mt-8 px-4'>
+            <div className='h-fit flex flex-col lg:flex-row gap-16 mt-8 px-4'>
 
                 {/* GALERÍA DE IMAGENES */}
                 <GridImages images={product.images} />
 
                 <div className='flex-1 space-y-5'>
-                    <h1 className='text-3xl font-bold tracking-tight'>
+                    <h1 className='text-3xl lg:text-4xl font-bold tracking-tight'>
                         {product.name}
                     </h1>
 
@@ -285,7 +285,7 @@ export const CellPhonePage = () => {
                                     Agregar al carro
                                 </button>
                                 <button
-                                    className='bg-black text-white uppercase font-semibold tracking-widest text-xs py-4 rounded-full'
+                                    className='bg-indigo-500 text-white uppercase font-semibold tracking-widest text-xs py-4 rounded-full hover:bg-indigo-300'
                                     onClick={buyNow}
                                 >
                                     Comprar ahora

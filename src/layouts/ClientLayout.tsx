@@ -36,7 +36,7 @@ export const ClientLayout = () => {
 				<NavLink
 					to='/account/pedidos'
 					className={({ isActive }) =>
-						`${isActive ? 'underline' : 'hover:underline'}`
+						`${isActive ? 'underline text-indigo-600' : 'hover:underline'}`
 					}
 				>
 					Pedidos

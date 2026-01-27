@@ -37,8 +37,8 @@ export const CheckoutPage = () => {
 					className='text-4xl font-bold self-center tracking-tighter transition-all md:text-5xl md:self-start'
 				>
 					<p>
-						Celulares
-						<span className='text-cyan-600'>Baratos</span>
+						CEL
+						<span className='text-indigo-600'>TECH</span>
 					</p>
 				</Link>
 			</header>
@@ -56,7 +56,7 @@ export const CheckoutPage = () => {
 						</p>
 						<Link
 							to='/celulares'
-							className='py-4 bg-black rounded-full text-white px-7 text-xs uppercase tracking-widest font-semibold'
+							className='py-4 bg-indigo-600 hover:bg-indigo-400 rounded-full text-white px-7 text-xs uppercase tracking-widest font-semibold'
 						>
 							Empezar a comprar
 						</Link>

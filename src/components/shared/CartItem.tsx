@@ -43,7 +43,7 @@ export const CartItem = ({ item }: Props) => {
 				<img
 					src={item.image}
 					alt={item.name}
-					className='w-20 h-20 object-contain'
+					className='w-20 h-20 object-cover rounded-md'
 				/>
 			</div>
 
@@ -78,7 +78,7 @@ export const CartItem = ({ item }: Props) => {
 					</div>
 
 					<button
-						className='underline font-medium text-[10px] hover:text-red-400'
+						className='underline font-medium text-[12px] hover:text-indigo-400'
 						onClick={() => removeItem(item.variantId)}
 					>
 						Eliminar

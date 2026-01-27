@@ -5,7 +5,7 @@ import { useLogin, useUser } from '../hooks';
 import { Loader } from '../components/shared/Loader';
 
 export const LoginPage = () => {
-	const [email, setEmail] = useState('mateo@gmail.com');
+	const [email, setEmail] = useState('admin@gmail.com');
 	const [password, setPassword] = useState('12341234');
 
 	const { mutate, isPending } = useLogin();
@@ -58,14 +58,14 @@ export const LoginPage = () => {
 							onChange={e => setPassword(e.target.value)}
 						/>
 
-						<button className='bg-black text-white uppercase font-semibold tracking-widest text-xs py-4 rounded-full mt-5 w-full'>
+						<button className='bg-indigo-600 hover:bg-indigo-400 text-white uppercase font-semibold tracking-widest text-xs py-4 rounded-full mt-5 w-full'>
 							Iniciar sesión
 						</button>
 					</form>
 
 					<p className='text-sm text-stone-800'>
 						¿No tienes una cuenta?
-						<Link to='/registro' className='underline ml-2'>
+						<Link to='/registro' className='underline ml-2 hover:text-indigo-600'>
 							Regístrate
 						</Link>
 					</p>

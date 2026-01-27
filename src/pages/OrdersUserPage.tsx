@@ -13,7 +13,7 @@ export const OrdersUserPage = () => {
 		<div className='flex flex-col gap-6 items-center'>
 			<div className='flex gap-2'>
 				<h1 className='text-3xl font-bold'>Pedidos</h1>
-				<span className='w-5 h-5 rounded-full bg-black text-white text-[11px] flex justify-center items-center mt-1'>
+				<span className='w-5 h-5 rounded-full bg-indigo-600 text-white text-[11px] flex justify-center items-center mt-1'>
 					{orders.length}
 				</span>
 			</div>
@@ -25,7 +25,7 @@ export const OrdersUserPage = () => {
 					</p>
 					<Link
 						to='/celulares'
-						className='bg-black text-white uppercase font-semibold tracking-widest text-xs py-4 rounded-full px-8'
+						className='bg-indigo-600 hover:bg-indigo-400 text-white uppercase font-semibold tracking-widest text-xs py-4 rounded-full px-8'
 					>
 						Empezar a comprar
 					</Link>

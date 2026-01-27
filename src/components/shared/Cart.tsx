@@ -43,7 +43,7 @@ export const Cart = () => {
 					<div className='mt-4 p-7'>
 						<Link
 							to='/checkout'
-							className='w-full bg-black text-white py-3.5 rounded-full flex items-center justify-center gap-3 hover:bg-black/80 text-sm font-medium'
+							className='w-full bg-indigo-600 hover:bg-indigo-400 text-white py-3.5 rounded-full flex items-center justify-center gap-3 hover:bg-black/80 text-sm font-medium'
 						>
 							<RiSecurePaymentLine size={24} />
 							Continuar con la compra
@@ -64,7 +64,7 @@ export const Cart = () => {
 					</p>
 					<Link
 						to='/celulares'
-						className='py-4 bg-black rounded-full text-white px-7 text-xs uppercase tracking-widest font-semibold'
+						className='py-4 bg-indigo-600 hover:bg-indigo-400 rounded-full text-white px-7 text-xs uppercase tracking-widest font-semibold'
 						onClick={closeSheet}
 					>
 						Empezar a comprar
