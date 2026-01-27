@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useNavigate } from 'react-router';
+import { Link, NavLink, Outlet, useNavigate } from 'react-router';
 import { signOut } from '../actions';
 import { useUser } from '../hooks';
 import { useEffect } from 'react';
@@ -10,9 +10,9 @@ export const ClientLayout = () => {
 
 	const navigate = useNavigate();
 
-    // Si el usuario no está autenticado, redirigir al login:
+	// Si el usuario no está autenticado, redirigir al login:
 	useEffect(() => {
-		supabase.auth.onAuthStateChange(async (event, session) => { 
+		supabase.auth.onAuthStateChange(async (event, session) => {
 			if (event === 'SIGNED_OUT' || !session) {
 				navigate('/login');
 			}
@@ -38,6 +38,9 @@ export const ClientLayout = () => {
 					Pedidos
 				</NavLink>
 				{/* TODO: LINK DASHBOARD */}
+				<Link to='/dashboard'>
+					Dashboard
+				</Link>
 
 				<button className='hover:underline' onClick={handleLogout}>
 					Cerrar sesión

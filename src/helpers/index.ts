@@ -46,9 +46,9 @@ export const prepareProducts = (products: Product[]) => {
 						existingColor.price,
 						variant.price
 					);
-				} 
+				}
 				else { // Si no existe, añadir un nuevo color al acumulador:
-					acc.push({ 
+					acc.push({
 						color: variant.color,
 						price: variant.price,
 						name: variant.color_name,
@@ -108,4 +108,12 @@ export const getStatus = (status: string): string => {
 		default:
 			return status;
 	}
+};
+
+// Función para generar el slug de un producto
+export const generateSlug = (name: string): string => {
+	return name
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/(^-|-$)/g, '');
 };

@@ -9,3 +9,4 @@ export * from './CheckoutPage';
 export * from './ThankyouPage';
 export * from './OrderUserPage';
 export * from './dashboard/DashboardProductsPage';
+export * from './dashboard/DashboardNewProductPage';
