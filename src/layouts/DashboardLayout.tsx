@@ -1,20 +1,47 @@
 import { Outlet, useNavigate } from 'react-router';
 import { Sidebar } from '../components/dashboard';
+import { useUser } from '../hooks';
+import { useEffect, useState } from 'react';
+import { getSession, getUserRole } from '../actions';
+import { Loader } from '../components/shared/Loader';
 import { supabase } from '../supabase/client';
-import { useEffect } from 'react';
 
 export const DashboardLayout = () => {
 
     const navigate = useNavigate();
 
-    // Redirigir si el usuario no está autenticado:
+    const { isLoading, session } = useUser();
+    const [roleLoading, setRoleLoading] = useState(true);
+
     useEffect(() => {
+        const checkRole = async () => {
+            setRoleLoading(true);
+            const session = await getSession();
+            if (!session) {
+                navigate('/login');
+            }
+
+            const role = await getUserRole(
+                session.session?.user.id as string
+            );
+
+            if (role !== 'admin') {
+                navigate('/', { replace: true });
+            }
+
+            setRoleLoading(false);
+        };
+
+        checkRole();
+
         supabase.auth.onAuthStateChange(async (event, session) => {
             if (event === 'SIGNED_OUT' || !session) {
-                navigate('/login');
+                navigate('/login', { replace: true });
             }
         });
     }, [navigate]);
+
+    if (isLoading || !session || roleLoading) return <Loader />;
 
     return (
         <div className='flex bg-gray-100 min-h-screen font-montserrat'>
