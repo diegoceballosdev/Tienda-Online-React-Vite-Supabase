@@ -4,7 +4,7 @@ import { HomePage } from "../pages/HomePage";
 import { CellPhonesPage } from "../pages/CellPhones";
 import { AboutPage } from "../pages/About";
 import { CellPhonePage } from "../pages/CellPhone";
-import { CheckoutPage, DashboardNewProductPage, DashboardProductSlugPage, LoginPage, OrdersUserPage, OrderUserPage, RegisterPage, ThankyouPage } from "../pages";
+import { CheckoutPage, DashboardNewProductPage, DashboardOrderPage, DashboardOrdersPage, DashboardProductSlugPage, LoginPage, OrdersUserPage, OrderUserPage, RegisterPage, ThankyouPage } from "../pages";
 import { ClientLayout } from "../layouts/ClientLayout";
 import { DashboardLayout } from "../layouts/DashboardLayout";
 import { DashboardProductsPage } from "../pages/dashboard/DashboardProductsPage";
@@ -61,7 +61,6 @@ export const router = createBrowserRouter([
         element: <ThankyouPage />,
       },
     ],
-
   },
   {
     path: "/checkout",
@@ -90,6 +89,14 @@ export const router = createBrowserRouter([
       {
         path: "productos/editar/:slug",
         element: <DashboardProductSlugPage />,
+      },
+      {
+        path: 'ordenes',
+        element: <DashboardOrdersPage />,
+      },
+      {
+        path: 'ordenes/:id',
+        element: <DashboardOrderPage />,
       }
     ],
   }
