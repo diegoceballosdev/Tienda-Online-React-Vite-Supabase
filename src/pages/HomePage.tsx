@@ -7,7 +7,7 @@ import { useHomeProducts } from "../hooks/products/useHomeProducts";
 
 export const HomePage = () => {
 
-    const { recentProducts, popularProducts, isLoading, isError } = useHomeProducts();
+    const { recentProducts, popularProducts, isLoading } = useHomeProducts();
 
     const preparedRecentProducts = prepareProducts(recentProducts);
     const preparedPopularProducts = prepareProducts(popularProducts);
