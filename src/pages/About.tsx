@@ -1,6 +1,6 @@
 export const AboutPage = () => {
 	return (
-		<div className='space-y-10'>
+		<div className='space-y-10 max-w-3xl mx-auto'>
 			<h1 className='text-center text-4xl md:text-5xl font-bold tracking-tight mb-2 text-slate-900 mb-10'>
 				Nuestra empresa
 			</h1>
@@ -8,7 +8,7 @@ export const AboutPage = () => {
 			<img
 				src='https://plus.unsplash.com/premium_photo-1682716270464-9a91cbbcf3b7?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWRpZmljaW8lMjBkZSUyMGxhJTIwZW1wcmVzYXxlbnwwfHwwfHx8MA%3D%3D'
 				alt='Imagen de fondo'
-				className='h-[320px] md:h-[460px] max-w-3xl object-cover rounded-3xl border border-slate-200 shadow-sm mx-auto'
+				className='h-[320px] md:h-[460px] object-cover rounded-3xl border border-slate-200 shadow-sm mx-auto'
 			/>
 
 			<div className='max-w-3xl mx-auto flex flex-col gap-5 tracking-tight leading-7 text-sm md:text-base font-medium text-slate-700'>
