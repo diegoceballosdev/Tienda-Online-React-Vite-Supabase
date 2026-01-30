@@ -1,5 +1,3 @@
-import { IoAddCircleOutline } from 'react-icons/io5';
-import { Link } from 'react-router';
 import { TableProduct } from '../../components/dashboard';
 
 
