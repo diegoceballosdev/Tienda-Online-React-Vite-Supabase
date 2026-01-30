@@ -10,9 +10,9 @@ export const Sidebar = () => {
     };
 
     return (
-        <div className='w-[100px] bg-gray-700 text-white flex flex-col gap-10 items-center p-5 fixed h-screen lg:w-[230px]'>
-           
-                {/* fixed es para que el sidebar quede fijo en la pantalla mientras se hace scroll
+        <div className='z-10 fixed h-full top-0 left-0 w-[100px]  lg:w-[230px] bg-gray-700 text-white flex flex-col gap-10 items-center p-5 '>
+
+            {/* fixed es para que el sidebar quede fijo en la pantalla mientras se hace scroll
                 - el ancho w-[120px] tiene 20px que el margin [140px] del dashboard product, para incrustarse alli 
                 - es igual con el w-[250px] */}
 
@@ -36,15 +36,18 @@ export const Sidebar = () => {
                         </p>
                     </NavLink>
                 ))}
+
+                <hr className='border border-amber-50' />
+
+                <button
+                    className='bg-red-400 hover:bg-red-500 w-full py-[10px] rounded-md flex items-center justify-center gap-2 font-semibold text-sm'
+                    onClick={handleLogout}
+                >
+                    <span className='hidden lg:block'>Cerrar sesión</span>
+                    <IoLogOutOutline size={20} className='inline-block' />
+                </button>
             </nav>
 
-            <button
-                className='bg-indigo-600 hover:bg-indigo-400 w-full py-[10px] rounded-md flex items-center justify-center gap-2 font-semibold text-sm'
-                onClick={handleLogout}
-            >
-                <span className='hidden lg:block'>Cerrar sesión</span>
-                <IoLogOutOutline size={20} className='inline-block' />
-            </button>
         </div>
     );
 };

@@ -28,7 +28,7 @@ export const TableOrdersAdmin = ({ orders }: Props) => {
 	};
 
 	return (
-		<div className='relative w-full h-full'>
+		<div className='overflow-auto '>
 			<table className='text-sm w-full caption-bottom overflow-auto'>
 
 				<thead className='border-b border-gray-200 pb-3'>

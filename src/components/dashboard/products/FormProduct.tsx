@@ -115,7 +115,7 @@ export const FormProduct = ({ titleForm }: Props) => {
 				className='grid grid-cols-1 lg:grid-cols-3 gap-8 auto-rows-max flex-1'
 				onSubmit={onSubmit}
 			>
-				<div className='flex justify-between items-center col-span-full'>
+				<div className='flex flex-col md:flex-row space-y-2 justify-between items-center col-span-full'>
 					<div className='flex items-center gap-3 col-span-2'>
 						<button
 							className='bg-white p-1.5 rounded-md shadow-sm border border-slate-200 transition-all group hover:scale-105'

@@ -7,6 +7,7 @@ import { Loader } from '../../shared/Loader';
 import { formatDate, formatPrice } from '../../../helpers';
 import { Pagination } from '../../shared/Pagination';
 import { CellTableProduct } from './CellTableProduct';
+import { IoAddCircleOutline } from 'react-icons/io5';
 
 const tableHeaders = [
 	'',
@@ -63,16 +64,29 @@ export const TableProduct = () => {
 		return <Loader />;
 
 	return (
-		<div className='flex flex-col flex-1 border border-gray-200 rounded-lg p-5 bg-white'>
-			
-			<h1 className='font-bold text-xl'>Productos</h1>
-			<p className='text-sm mt-1 mb-8 font-regular text-gray-500'>
-				Gestiona tus productos y mira las estadísticas de tus ventas
-			</p>
+		<div className='flex flex-col flex-1 rounded-lg p-5 bg-white'>
+
+			<div className='flex flex-col md:flex-row justify-between items-center'>
+				<div className='self-start'>
+					<h1 className='font-bold text-xl'>Productos</h1>
+					<p className='text-sm mt-1 mb-4 font-regular text-gray-500'>
+						Gestiona tus productos y mira las estadísticas de tus ventas
+					</p>
+				</div>
+				<div className='flex items-center self-start justify-end mb-4'>
+					<Link
+						to='/dashboard/productos/new'
+						className='bg-indigo-600 text-white flex items-center self-end justify-end py-[6px] px-2 rounded-md text-sm gap-1 font-semibold mb-2'
+					>
+						<IoAddCircleOutline className='inline-block' />
+						Nuevo Producto
+					</Link>
+				</div>
+			</div>
 
 			{/* Tabla */}
-			<div className='relative w-full h-full'>
-				<table className='text-sm w-full caption-bottom overflow-auto'>
+			<div className='w-full h-full mb-6 overflow-scroll'>
+				<table className='text-sm w-full caption-bottom'>
 					<thead className='border-b border-gray-200 pb-3'>
 						<tr className='text-sm font-bold'>
 							{tableHeaders.map((header, index) => (
@@ -90,8 +104,8 @@ export const TableProduct = () => {
 								product.variants[selectedVariantIndex] || {};
 
 							return (
-								<tr key={index}>
-									<td className='p-4 align-middle sm:table-cell'>
+								<tr key={index} className='bg-neutral-primary border-b border-default'>
+									<td className="px-6 py-4">
 										<img
 											src={
 												product.images[0] ||
@@ -104,7 +118,7 @@ export const TableProduct = () => {
 										/>
 									</td>
 									<CellTableProduct content={product.name} />
-									<td className='p-4 font-medium tracking-tighter'>
+									<td className="px-6 py-4">
 										<select
 											className='border border-gray-300 rounded-md p-1 w-full'
 											onChange={e =>
@@ -136,9 +150,9 @@ export const TableProduct = () => {
 									<CellTableProduct
 										content={formatDate(product.created_at)}
 									/>
-									<td className='relative'>
+									<td className='relative '>
 										<button
-											className='text-slate-900'
+											className='text-slate-900 border border-gray-400 p-1 rounded-full hover:bg-gray-100 cursor-pointer'
 											onClick={() => handleMenuToggle(index)}
 										>
 											<FaEllipsis />
@@ -159,7 +173,7 @@ export const TableProduct = () => {
 													/>
 												</Link>
 												<button
-													className='block w-full text-left px-4 py-2 text-xs font-medium text-gray-700 hover:bg-indigo-100'
+													className=' block w-full text-left px-4 py-2 text-xs font-medium text-gray-700 hover:bg-indigo-100'
 													onClick={() =>
 														handleDeleteProduct(product.id)
 													}
