@@ -10,7 +10,7 @@ export const Sidebar = () => {
     };
 
     return (
-        <div className='z-10 fixed h-full top-0 left-0 w-[100px]  lg:w-[230px] bg-gray-700 text-white flex flex-col gap-10 items-center p-5 '>
+        <div className='z-10 fixed h-full top-0 left-0 w-[80px] lg:w-[230px] bg-gray-700 text-white flex flex-col gap-10 items-center p-5 '>
 
             {/* fixed es para que el sidebar quede fijo en la pantalla mientras se hace scroll
                 - el ancho w-[120px] tiene 20px que el margin [140px] del dashboard product, para incrustarse alli 
@@ -25,7 +25,7 @@ export const Sidebar = () => {
                         to={link.href}
                         className={({ isActive }) =>
                             `flex items-center justify-center gap-3 pl-0 py-3 transition-all duration-300 rounded-md ${isActive
-                                ? 'text-indigo-100 bg-indigo-600'
+                                ? 'text-white shadow-lg bg-gray-600 lg:pl-5 lg:justify-start'
                                 : 'text-white hover:text-indigo-100'
                             } lg:pl-5 lg:justify-start`
                         }
