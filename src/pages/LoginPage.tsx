@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LuLoader } from 'react-icons/lu';
 import { Link, Navigate } from 'react-router';
 import { useLogin, useUser } from '../hooks';
 import { Loader } from '../components/shared/Loader';
+import { useGlobalStore } from '../store/global.store';
 
 export const LoginPage = () => {
 	const [email, setEmail] = useState('admin@gmail.com');
@@ -11,10 +12,16 @@ export const LoginPage = () => {
 	const { mutate, isPending } = useLogin();
 	const { session, isLoading } = useUser();
 
+	const closeSheet = useGlobalStore(state => state.closeSheet);
+
 	const onLogin = (e: React.FormEvent) => {
 		e.preventDefault();
 		mutate({ email, password });
 	};
+
+	useEffect(() => {
+		closeSheet();
+	}, []);
 
 	// Si está cargando la session, mostrar loader:
 	if (isLoading) return <Loader />;
