@@ -47,10 +47,11 @@ export const Sheet = () => {
         <div className='fixed inset-0 bg-black/50 z-50 flex justify-end animate-fade-in'>
             <div
                 ref={sheetRef}
-                className='bg-white text-black h-screen w-full md:w-[500px] shadow-lg animate-slide-in overflow-y-auto'
+                className='bg-white text-black h-[100dvh] w-full max-w-[500px] shadow-lg animate-slide-in flex flex-col min-h-0'
             >
                 {renderContent()}
             </div>
         </div>
+
     );
 };

@@ -17,7 +17,7 @@ export const Cart = () => {
 	);
 
 	return (
-		<div className='flex flex-col h-full'>
+		<div className='flex flex-col h-full min-h-0'>
 			<div className='px-5 py-7 flex justify-between items-center border-b border-slate-200'>
 				<span className='flex gap-3 items-center font-semibold'>
 					<HiOutlineShoppingBag size={20} />
