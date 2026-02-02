@@ -26,7 +26,7 @@ export const Search = () => {
 
 	return (
 		<>
-			<div className='min-h-0 py-5 px-7 flex gap-10 items-center border-b border-slate-200'>
+			<div className='py-5 px-7 flex gap-10 items-center border-b border-slate-200'>
 				<form
 					className='flex gap-3 items-center flex-1'
 					onSubmit={handleSearch}
@@ -46,7 +46,7 @@ export const Search = () => {
 			</div>
 
 			{/* RESULTADOS DE Busqueda */}
-			<div className='p-5'>
+			<div className='p-5 min-h-0 overflow-auto flex-1'>
 				{searchResults.length > 0 ? (
 					<ul>
 						{searchResults.map(product => (
