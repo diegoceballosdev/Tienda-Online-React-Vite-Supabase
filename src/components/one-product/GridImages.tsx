@@ -13,7 +13,7 @@ export const GridImages = ({ images }: Props) => {
 
 	return (
 		<div className='flex-1 flex flex-col gap-3 relative'>
-			<div className='bg-[#f2f2f2] h-[500px] p-4'>
+			<div className='bg-white h-[500px] p-4'>
 				<img
 					src={activeImage}
 					alt='Imagen de Producto'
@@ -36,7 +36,7 @@ export const GridImages = ({ images }: Props) => {
 						<img
 							src={image}
 							alt={`Thumbnail ${index + 1}`}
-							className='w-full h-ful object-cover rounded-lg'
+							className='w-full h-full object-cover rounded-lg'
 						/>
 					</button>
 				))}
